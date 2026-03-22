@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>7-Eleven Online Store – Secure Checkout</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">7-Eleven</div>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+        <a href="checkout.html">Checkout</a>
+      </div>
+      <button class="theme-toggle" onclick="toggleTheme()">☀️</button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="checkout-form">
+      <h1>Secure Checkout</h1>
+      <main>
+        <div class="checkout-form">
+          <h1>Secure Checkout</h1>
+          <form id="checkout-form">
+      
+            <!-- Personal Info -->
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" required />
+            </div>
+            <div class="form-group">
+              <label for="address">Delivery Address</label>
+              <textarea id="address" rows="4" required></textarea>
+            </div>
+      
+            <!-- New: Payment Method Selection -->
+            <div class="form-group payment-section">
+              <label>Payment Method</label>
+              <div class="payment-options" id="payment-options">
+                <label class="payment-option">
+                  <input type="radio" name="payment" value="mobile-money" required />
+                  <img src="mtn.jpeg" alt="MTN Mobile Money" class="payment-icon" />
+                  <span>MTN Mobile Money</span>
+                </label>
+      
+                <label class="payment-option">
+                  <input type="radio" name="payment" value="airtel-money" />
+                  <img src="airtel.png" alt="Airtel Money" class="payment-icon" />
+                  <span>Airtel Money</span>
+                </label>
+      
+                <label class="payment-option">
+                  <input type="radio" name="payment" value="visa" />
+                  <img src="visa.png" alt="Visa" class="payment-icon" />
+                  <span>Visa Card</span>
+                </label>
+      
+                <label class="payment-option">
+                  <input type="radio" name="payment" value="mastercard" />
+                  <img src="mastercard.png" alt="Mastercard" class="payment-icon" />
+                  <span>Mastercard</span>
+                </label>
+      
+                <!--Add more if needed -->
+                <label class="payment-option">
+                  <input type="radio" name="payment" value="paypal" />
+                  <img src="paypal.png" alt="Paypal" class="payment-icon">
+                  <span>Paypal</span>
+                </label>
+              </div>
+              <p class="error-message" id="payment-error" style="color: #ef4444; font-size: 0.9rem; display: none;">
+                Please select a payment method
+              </p>
+            </div>
+      
+            <button type="submit">Place Order Securely</button>
+          </form>
+        </div>
+      </main>
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+</body>
+</html>

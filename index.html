@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>7 - Eleven Online Store – Premium Tech & Fashion</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">7-Eleven Online StoreStore 🛍️</div>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+        <a href="checkout.html">Checkout</a>
+      </div>
+      <button class="theme-toggle" onclick="toggleTheme()">☀️</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="search-section">
+      <input type="text" id="search-input" placeholder="Search premium products..." />
+    </section>
+
+    <section class="category-filters">
+      <button class="category-btn active" data-category="all">All</button>
+      <button class="category-btn" data-category="Electronics">Electronics</button>
+      <button class="category-btn" data-category="Fashion">Fashion</button>
+      <button class="category-btn" data-category="Books">Books</button>
+    </section>
+
+    <div id="products-container" class="products-grid"></div>
+  </main>
+
+  <script src="js/script.js"></script>
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+   
+<div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+      <p>
+        This website uses cookies🍪 to enhance your browsing experience, analyze site traffic, and for essential functionality. 
+        By continuing to use the site, you agree to our use of cookies. 
+        <a href="#" class="cookie-link">Learn more</a> in our Cookie Policy.
+      </p>
+      <div class="cookie-buttons">
+        <button id="cookie-accept" class="cookie-btn accept">Accept All</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

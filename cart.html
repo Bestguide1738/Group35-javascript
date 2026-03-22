@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>7-Eleven Online Store – Your Cart</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">EliteShop</div>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+        <a href="checkout.html">Checkout</a>
+      </div>
+      <button class="theme-toggle" onclick="toggleTheme()">☀️</button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="cart-container">
+      <h1>Your Shopping Cart</h1>
+      <div id="cart-items"></div>
+      <h2 id="cart-total" style="text-align:right; margin:2rem 0;">Total: $0.00</h2>
+      <a href="checkout.html"><button style="font-size:1.1rem;">Proceed to Checkout →</button></a>
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+</body>
+</html>
